@@ -33,7 +33,7 @@ class _OffersSliderWidgetState extends State<OffersSliderWidget> {
               //     context, AllChampionshipScreen());
             }),
         SizedBox(
-          height: 2.h,
+          height: 1.h,
         ),
         CarouselSlider.builder(
             carouselController: carouselController,

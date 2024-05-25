@@ -42,10 +42,7 @@ class RateWidget extends StatelessWidget {
   Widget rateFiveStars() {
     return Row(
       children: [
-        CustomText(
-          textData: numberOfStar.toString(),
-        ),
-        SizedBox(width: 1.w,),
+     
         Icon(
           Icons.star,
           color: Colors.amber,
@@ -78,10 +75,7 @@ class RateWidget extends StatelessWidget {
   Widget rateFourAndHalfStars() {
     return Row(
       children: [
-        CustomText(
-          textData: numberOfStar.toString(),
-        ),
-                SizedBox(width: 1.w,),
+        
 
         Icon(
           Icons.star_half,
@@ -115,10 +109,7 @@ class RateWidget extends StatelessWidget {
   Widget rateFourStars() {
     return Row(
       children: [
-        CustomText(
-          textData: numberOfStar.toString(),
-        ),
-                SizedBox(width: 1.w,),
+        
 
         Icon(
           Icons.star_border_outlined,
@@ -152,10 +143,7 @@ class RateWidget extends StatelessWidget {
   Widget rateThreeAndHalfStars() {
     return Row(
       children: [
-        CustomText(
-          textData: numberOfStar.toString(),
-        ),
-                SizedBox(width: 1.w,),
+        
 
         Icon(
           Icons.star_border_outlined,
@@ -189,10 +177,7 @@ class RateWidget extends StatelessWidget {
   Widget rateThreeStars() {
     return Row(
       children: [
-        CustomText(
-          textData: numberOfStar.toString(),
-        ),
-                SizedBox(width: 1.w,),
+        
 
         Icon(
           Icons.star_border_outlined,
@@ -226,10 +211,7 @@ class RateWidget extends StatelessWidget {
   Widget rateTwoAndHalfStars() {
     return Row(
       children: [
-        CustomText(
-          textData: numberOfStar.toString(),
-        ),
-                SizedBox(width: 1.w,),
+        
 
         Icon(
           Icons.star_border_outlined,
@@ -263,10 +245,7 @@ class RateWidget extends StatelessWidget {
   Widget rateTwoStars() {
     return Row(
       children: [
-        CustomText(
-          textData: numberOfStar.toString(),
-        ),
-                SizedBox(width: 1.w,),
+        
 
         Icon(
           Icons.star_border_outlined,
@@ -300,10 +279,7 @@ class RateWidget extends StatelessWidget {
   Widget rateOneAndHalfStars() {
     return Row(
       children: [
-        CustomText(
-          textData: numberOfStar.toString(),
-        ),
-                SizedBox(width: 1.w,),
+        
 
         Icon(
           Icons.star_border_outlined,
@@ -337,10 +313,7 @@ class RateWidget extends StatelessWidget {
   Widget rateOneStar() {
     return Row(
       children: [
-        CustomText(
-          textData: numberOfStar.toString(),
-        ),
-                SizedBox(width: 1.w,),
+        
 
         Icon(
           Icons.star_border_outlined,
@@ -374,10 +347,7 @@ class RateWidget extends StatelessWidget {
   Widget rateHalfStar() {
     return Row(
       children: [
-        CustomText(
-          textData: numberOfStar.toString(),
-        ),
-                SizedBox(width: 1.w,),
+        
 
         Icon(
           Icons.star_border_outlined,
@@ -411,10 +381,7 @@ class RateWidget extends StatelessWidget {
   Widget rateZeroStar() {
     return Row(
       children: [
-        CustomText(
-          textData: numberOfStar.toString(),
-        ),
-                SizedBox(width: 1.w,),
+        
 
         Icon(
           Icons.star_border_outlined,

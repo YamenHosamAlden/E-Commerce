@@ -29,7 +29,7 @@ class HomeCaregoriesListWidget extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 18.h,
+          height: 16.h,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: listCategoriesModel.length,

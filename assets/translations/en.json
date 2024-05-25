@@ -40,7 +40,12 @@
     "Shop": "Shop",
     "Choose Theme":"Choose Theme",
     "Dark":"Dark",
-    "Light":"Light"
+    "Light":"Light",
+    "Send Order":"Send Order",
+    "Order Price":"Order Price",
+    "Order Number":"Order Number",
+    "Order State":"Order State",
+    "View Order": "View Order"
    
 
 }

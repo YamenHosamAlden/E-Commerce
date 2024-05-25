@@ -15,7 +15,7 @@ class CardCategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 28.w,
+      width: 25.w,
       child: InkWell(
         borderRadius: BorderRadius.circular(5.w),
         onTap: () {},
@@ -86,7 +86,7 @@ class CardCategoryWidget extends StatelessWidget {
               //   fit: BoxFit.cover,
               // ),
               SizedBox(
-                height: 1.h,
+                height: 0.5.h,
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 1.w),

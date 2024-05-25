@@ -40,7 +40,14 @@
     "Shop": "التسوق",
     "Choose Theme":"اختر السمة",
     "Dark":"الليلي",
-    "Light":"النهاري"
+    "Light":"النهاري",
+    "Send Order":"ارسال الطلب",
+    "Order Price":"سعر الطلب",
+    "Order Number":"رقم الطلب",
+    "Order State":"حالة الطلب",
+    "View Order": "عرض الطلب "
+
+
 
 
 

@@ -2,6 +2,7 @@ import 'package:ecommerce/App/app_localizations.dart';
 import 'package:ecommerce/Bloc/connectivity_bloc/connectivity_bloc.dart';
 import 'package:ecommerce/Bloc/main_bloc/main_bloc.dart';
 import 'package:ecommerce/Core/Constants/app_assets.dart';
+import 'package:ecommerce/Screens/Cart/cart_screen.dart';
 import 'package:ecommerce/Screens/Categories/categories_screen.dart';
 import 'package:ecommerce/Screens/Home/home_screen.dart';
 import 'package:ecommerce/Util/Dialogs/confirm_dialog.dart';
@@ -36,7 +37,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     screens = [
        HomeScreen(),
       const CategoriesScreen(),
-      Container(),
+      CartScreen(),
       Container(),
     ];
   }

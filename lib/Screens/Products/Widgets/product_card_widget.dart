@@ -113,7 +113,7 @@ class ProductCardWidget extends StatelessWidget {
                       ],
                     ),
                     const Row(
-                      children: [RateWidget(numberOfStar: 0.7)],
+                      children: [RateWidget(numberOfStar: 0.7),CustomText(textData: "500",)],
                     ),
                     Row(
                       children: [

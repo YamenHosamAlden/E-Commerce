@@ -1,4 +1,5 @@
 import 'package:ecommerce/App/app_localizations.dart';
+import 'package:ecommerce/Screens/Orders/Widgets/list_of_orders_widget.dart';
 import 'package:ecommerce/Widgets/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +34,7 @@ class OrdersScreen extends StatelessWidget {
               Expanded(
                 child: TabBarView(
                   children: [
-                    Container(),
+                    ListOfOrdersWidget(),
                     Container(),
                     Container(),
                     Container(),
