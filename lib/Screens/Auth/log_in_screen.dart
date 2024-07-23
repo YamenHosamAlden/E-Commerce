@@ -3,7 +3,6 @@ import 'package:ecommerce/Bloc/auth_bloc/auth_bloc.dart';
 import 'package:ecommerce/Core/Constants/app_assets.dart';
 import 'package:ecommerce/Util/Dialogs/dialog_loading.dart';
 import 'package:ecommerce/Util/Dialogs/localization_pop_up.dart';
-import 'package:ecommerce/Screens/Auth/ChangePassword/phone_number_screen.dart';
 import 'package:ecommerce/Screens/Auth/sign_up_screen.dart';
 import 'package:ecommerce/Screens/Main/main_screen.dart';
 import 'package:ecommerce/Util/GeneralRoute.dart';
@@ -223,8 +222,8 @@ class _LogInScreenState extends State<LogInScreen> {
                 children: [
                   TextButton(
                       onPressed: () {
-                        GeneralRoute.navigatorPushWithContext(
-                            context, const PhoneNumberScreen());
+                        // GeneralRoute.navigatorPushWithContext(
+                        //     context, const PhoneNumberScreen());
                       },
                       child: CustomText(
                         textData: "Forgot password?".tr(context),
