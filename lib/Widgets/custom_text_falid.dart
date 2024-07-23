@@ -9,6 +9,7 @@ class CustomTextField extends StatefulWidget {
   final TextInputType textInputType;
   final int? maxLine;
   final FocusNode? focusNode;
+  final String? labelText;
   final FocusNode? nextNode;
   final TextInputAction? textInputAction;
   final bool isPhoneNumber;
@@ -39,6 +40,7 @@ class CustomTextField extends StatefulWidget {
     this.validator,
     required this.textInputType,
     this.textDirection,
+    this.labelText,
     this.maxLine,
     this.focusNode,
     this.enabled = true,
@@ -73,6 +75,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(context) {
     return TextFormField(
       enabled: widget.enabled,
+      
+      
       cursorColor: Theme.of(context).primaryColor,
       style: TextStyle(
         color: Theme.of(context).primaryColor,
@@ -97,6 +101,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       onFieldSubmitted: (v) {
         FocusScope.of(context).requestFocus(widget.nextNode);
       },
+      
       validator: widget.validator,
       textAlign: widget.textAlign,
       textDirection: widget.textDirection,
@@ -123,6 +128,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 ))
             : const SizedBox.shrink(),
         hintText: widget.hintText ?? '',
+        labelText:widget.labelText ,
+        labelStyle: TextStyle(
+          color: Theme.of(context).hintColor,
+          fontSize: 14.sp
+
+        ),
         border: Theme.of(context).inputDecorationTheme.border,
         errorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
         enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
@@ -135,7 +146,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             vertical: 1.h, horizontal: widget.variant ? 0 : 2.h),
         alignLabelWithHint: true,
         counterText: '',
-        hintStyle: TextStyle(color: AppColors.greyLightColor, fontSize: 12.sp),
+        hintStyle: TextStyle(color: Theme.of(context).hintColor, fontSize: 12.sp),
         errorStyle: const TextStyle(height: 1.5),
       ),
     );

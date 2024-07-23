@@ -1,4 +1,3 @@
-import 'package:ecommerce/Core/Constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:sizer/sizer.dart';
@@ -17,7 +16,6 @@ class LoadingWidget extends StatelessWidget {
             indicatorType: Indicator.ballRotateChase,
             colors: [
               color ?? Theme.of(context).primaryColor,
-              AppColors.redColor
             ],
             strokeWidth: 4,
             backgroundColor: Colors.transparent,

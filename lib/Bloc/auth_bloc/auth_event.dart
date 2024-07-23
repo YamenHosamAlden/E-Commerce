@@ -3,21 +3,21 @@ part of 'auth_bloc.dart';
 @immutable
 abstract class AuthEvent {}
 
-class SigInEvent extends AuthEvent {
-  final String phoneNumber;
+class LoginEvent extends AuthEvent {
+  final String email;
 
   final String password;
-  SigInEvent({
-    required this.phoneNumber,
+  LoginEvent({
+    required this.email,
     required this.password,
   });
 }
 
 class SignUpEvent extends AuthEvent {
-  
+  final SignUpModel signUpModel;
+
+  SignUpEvent({required this.signUpModel});
 }
-
-
 
 class VerifySmsCodeEvent extends AuthEvent {
   final String code;
@@ -29,7 +29,6 @@ class SendCodeEvent extends AuthEvent {
   final String phone;
 
   SendCodeEvent({
-
     required this.phone,
   });
 }
@@ -44,13 +43,13 @@ class ChangePasswordEvent extends AuthEvent {
   final String phoneNumber;
   final String newPassword;
 
-  ChangePasswordEvent( {required this.newPassword,required this.phoneNumber});
+  ChangePasswordEvent({required this.newPassword, required this.phoneNumber});
 }
 
 class DeleteAccountEvent extends AuthEvent {
-  final int  playerId;
+  final int playerId;
 
-  DeleteAccountEvent( {required this.playerId});
+  DeleteAccountEvent({required this.playerId});
 }
 
 class LogOutEvent extends AuthEvent {}

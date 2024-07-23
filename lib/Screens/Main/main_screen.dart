@@ -1,16 +1,21 @@
 import 'package:ecommerce/App/app_localizations.dart';
+import 'package:ecommerce/Bloc/cart_bloc/cart_bloc.dart';
 import 'package:ecommerce/Bloc/connectivity_bloc/connectivity_bloc.dart';
 import 'package:ecommerce/Bloc/main_bloc/main_bloc.dart';
+import 'package:ecommerce/Bloc/notification_bloc/notification_bloc.dart';
 import 'package:ecommerce/Core/Constants/app_assets.dart';
+import 'package:ecommerce/Screens/Account/account_screen.dart';
 import 'package:ecommerce/Screens/Cart/cart_screen.dart';
 import 'package:ecommerce/Screens/Categories/categories_screen.dart';
 import 'package:ecommerce/Screens/Home/home_screen.dart';
+import 'package:ecommerce/Screens/Main/Widgets/cart_button_navbar.dart';
 import 'package:ecommerce/Util/Dialogs/confirm_dialog.dart';
 import 'package:ecommerce/Screens/Main/Widgets/bottom_navigationbar_item.dart';
+import 'package:ecommerce/Util/notificaton.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:fluttertoast/fluttertoast.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -33,12 +38,15 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   void initState() {
     WidgetsBinding.instance.addObserver(this);
     super.initState();
+    BlocProvider.of<CartBloc>(context).add(GetCartListEvent());
+    BlocProvider.of<NotificationBloc>(context).add(GetNotificationsEvent());
+    NotificatonHandler.inApp(context);
 
     screens = [
-       HomeScreen(),
+      const HomeScreen(),
       const CategoriesScreen(),
-      CartScreen(),
-      Container(),
+      const CartScreen(),
+      const AccountScreen()
     ];
   }
 
@@ -131,14 +139,12 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                         index: 0,
                         imageIcon: AppAssets.homeIcon,
                         navBarName: "Shop".tr(context)),
-                    bottomNavigationBarItem(
-                      context,
-                      currentIndex: context.read<MainBloc>().currentIndex,
-                      index: 1,
-                      navBarName: "Categories".tr(context),
-                      imageIcon: AppAssets.categoriesIcon
-                    ),
                     bottomNavigationBarItem(context,
+                        currentIndex: context.read<MainBloc>().currentIndex,
+                        index: 1,
+                        navBarName: "Categories".tr(context),
+                        imageIcon: AppAssets.categoriesIcon),
+                    bottomNavigationBarCart(context,
                         currentIndex: context.read<MainBloc>().currentIndex,
                         index: 2,
                         imageIcon: AppAssets.cartIcon,

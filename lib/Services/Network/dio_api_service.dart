@@ -12,7 +12,6 @@ class DioApiService {
         baseUrl: Environment.baseUrl,
         headers: {
           'Content-Type': 'application/json',
-          "Accept": 'application/json',
         },
         connectTimeout: const Duration(seconds: 30),
         receiveTimeout: const Duration(seconds: 30)));
@@ -63,7 +62,6 @@ class DioApiService {
     ProgressCallback? onReceiveProgress,
   }) async {
     try {
-    
       Response<dynamic> response = await dio.post(
         url,
         data: data,

@@ -1,17 +1,34 @@
 import 'package:ecommerce/App/app_localizations.dart';
+import 'package:ecommerce/Bloc/profile_bloc/profile_bloc.dart';
 import 'package:ecommerce/Core/Constants/app_assets.dart';
-import 'package:ecommerce/Screens/Home/Widgets/drawer_item.dart';
+import 'package:ecommerce/Screens/Account/Widgets/avatar_info_widget.dart';
+import 'package:ecommerce/Screens/Account/edit_profile_screen.dart';
+import 'package:ecommerce/Widgets/menu_item.dart';
+import 'package:ecommerce/Screens/Products/favorite_screen.dart';
 import 'package:ecommerce/Screens/Orders/orders_screen.dart';
 import 'package:ecommerce/Util/Dialogs/localization_pop_up.dart';
 import 'package:ecommerce/Util/Dialogs/theme_pop_up.dart';
 import 'package:ecommerce/Util/GeneralRoute.dart';
-import 'package:ecommerce/Widgets/avatarImage.dart';
-import 'package:ecommerce/Widgets/custom_text.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
-class DrawerWidget extends StatelessWidget {
+class DrawerWidget extends StatefulWidget {
   const DrawerWidget({super.key});
+
+  @override
+  State<DrawerWidget> createState() => _DrawerWidgetState();
+}
+
+class _DrawerWidgetState extends State<DrawerWidget> {
+  late ProfileBloc profileBloc;
+  @override
+  void initState() {
+    super.initState();
+    profileBloc = BlocProvider.of<ProfileBloc>(context);
+    profileBloc.add(GetProfileEvent());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,60 +36,47 @@ class DrawerWidget extends StatelessWidget {
         child: Drawer(
             child: SingleChildScrollView(
                 child: Column(children: [
-      Column(
-        children: [
-          const AvatarImage(
-            editButton: false,
-            stringImage: "",
-          ),
-          CustomText(
-            textData: "My Name",
-            textStyle: Theme.of(context).textTheme.headlineMedium,
-          )
-        ],
-      ),
+      AvatarInfoWidget(profileBloc: profileBloc),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 4.5.w),
         child: Divider(
           color: Theme.of(context).colorScheme.secondary,
         ),
       ),
-      DrawerItem(
-        onTap: () {},
-        icon: AppAssets.profileIcon,
-        textStyle: Theme.of(context).textTheme.bodyLarge,
+      MenuItemm(
+        onPressed: () {
+          GeneralRoute.navigatorPushWithContext(context, EditProfileScreen());
+        },
+        image: AppAssets.basicInfoIcon,
         title: "Profile".tr(context),
       ),
-      DrawerItem(
-        onTap: () {
-         
+      MenuItemm(
+        onPressed: () {
+          GeneralRoute.navigatorPushWithContext(
+              context, const FavoriteScreen());
         },
-        icon: AppAssets.heartIcon,
-        textStyle: Theme.of(context).textTheme.bodyLarge,
+        image: AppAssets.heartIcon,
         title: "Favorite".tr(context),
       ),
-      DrawerItem(
-        onTap: () {
-          GeneralRoute.navigatorPushWithContext(context, const OrdersScreen());
+      MenuItemm(
+        onPressed: () {
+          GeneralRoute.navigatorPushWithContext(context,  OrdersScreen());
         },
-        icon: AppAssets.ordersIcon,
-        textStyle: Theme.of(context).textTheme.bodyLarge,
+        image: AppAssets.ordersIcon,
         title: "My Orders".tr(context),
       ),
-      DrawerItem(
-        onTap: () {
+      MenuItemm(
+        onPressed: () {
           popUpChooseLocale(context);
         },
-        icon: AppAssets.langIcon,
-        textStyle: Theme.of(context).textTheme.bodyLarge,
+        image: AppAssets.langIcon,
         title: "Language".tr(context),
       ),
-      DrawerItem(
-        onTap: () {
+      MenuItemm(
+        onPressed: () {
           popUpChooseTheme(context);
         },
-        icon: AppAssets.themesIcon,
-        textStyle: Theme.of(context).textTheme.bodyLarge,
+        image: AppAssets.themesIcon,
         title: "Theme".tr(context),
       ),
     ]))));

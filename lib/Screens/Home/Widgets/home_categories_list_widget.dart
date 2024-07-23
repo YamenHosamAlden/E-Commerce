@@ -1,13 +1,14 @@
 import 'package:ecommerce/App/app_localizations.dart';
 import 'package:ecommerce/Data/Models/categories_model.dart';
 import 'package:ecommerce/Screens/Categories/Widgets/card_category.dart';
+
 import 'package:ecommerce/Widgets/custom_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:sizer/sizer.dart';
 
 class HomeCaregoriesListWidget extends StatelessWidget {
-  const HomeCaregoriesListWidget({super.key});
+  final List<Categories> categories;
+const  HomeCaregoriesListWidget({required this.categories,super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +22,7 @@ class HomeCaregoriesListWidget extends StatelessWidget {
                 child: CustomText(
                   textData: "Categories".tr(context),
                   textAlign: TextAlign.start,
-                   textStyle: Theme.of(context).textTheme.headlineMedium,
-              
+                  textStyle: Theme.of(context).textTheme.headlineMedium,
                 ),
               ),
             ],
@@ -32,12 +32,12 @@ class HomeCaregoriesListWidget extends StatelessWidget {
           height: 16.h,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: listCategoriesModel.length,
+            itemCount: categories.length,
             itemBuilder: (context, index) {
               return CardCategoryWidget(
                 titleMaxLine: 1,
-                categoriesModel: listCategoriesModel[index],
-                
+                categories: categories[index],
+
               );
             },
           ),

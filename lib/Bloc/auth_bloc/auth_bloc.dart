@@ -1,65 +1,61 @@
 import 'package:bloc/bloc.dart';
+import 'package:ecommerce/Data/Models/auth_model.dart';
+import 'package:ecommerce/Data/Repository/auth_repository.dart';
+import 'package:ecommerce/Services/Helper/api_result.dart';
+import 'package:ecommerce/Util/SharedPreferences/SharedPreferencesHelper.dart';
 import 'package:flutter/material.dart';
-
-import 'package:meta/meta.dart';
+import 'package:flutter/widgets.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthStates> {
+  AuthRepository authRepository = AuthRepository();
   AuthBloc() : super(AuthInitial()) {
-    on<SigInEvent>((event, emit) async {
-      // emit(SiginLoadingState());
+    on<LoginEvent>((event, emit) async {
+      emit(LogInLoadingState());
 
-      // ApiResult apiResult = await authRepository.signIn(
-      //   phoneNumber: event.phoneNumber,
-      //   password: event.password,
-      // );
+      ApiResult apiResult = await authRepository.logIn(
+        email: event.email,
+        password: event.password,
+      );
 
-      // if (apiResult.response != null && apiResult.response!.statusCode == 200) {
-      //   if (apiResult.response!.data['code'] == 401) {
-      //     emit(SiginErrorState(message: apiResult.response!.data['message']));
-      //   } else {
-
-      //     emit(SiginSuccesfulState());
-      //   }
-      // } else {
-      //   emit(SiginErrorState(message: apiResult.error));
-      // }
+      if (apiResult.response != null && apiResult.response!.statusCode == 200) {
+        if (apiResult.response!.data['code'] == 401) {
+          emit(LogInErrorState(message: apiResult.response!.data['message']));
+        } else {
+          AppSharedPreferences.saveToken(apiResult.response!.data["token"]);
+          emit(LogInSuccessfulState());
+        }
+      } else {
+        emit(LogInErrorState(message: apiResult.error));
+      }
     });
 
     on<SignUpEvent>((event, emit) async {
-      // emit(SignUpLoadingState());
+      emit(SignUpLoadingState());
 
-      // ApiResult apiResult =
-      //     await authRepository.signUp(signUpModel: event.signUpModel);
+      ApiResult apiResult =
+          await authRepository.signUp(signUpModel: event.signUpModel);
 
-      // if (apiResult.response != null && apiResult.response!.statusCode == 200) {
-
-      //   emit(SignUpSuccesfulState());
-      // } else {
-      //   emit(SignUpErrorState(message: apiResult.error));
-      // }
+      if (apiResult.response != null && apiResult.response!.statusCode == 201) {
+        AppSharedPreferences.saveToken(apiResult.response!.data["token"]);
+        emit(SignUpSuccessfulState());
+      } else {
+        emit(SignUpErrorState(message: apiResult.error));
+      }
     });
 
     on<LogOutEvent>((event, emit) async {
-      // emit(LogOutLoadingState());
+      emit(LogOutLoadingState());
 
-      // ApiResult apiResult = await authRepository.logOut();
+      ApiResult apiResult = await authRepository.logOut();
 
-      // if (apiResult.response != null && apiResult.response!.statusCode == 200) {
-      //   await AppSharedPreferences.clearSharedPreferences();
-
-      //   await AppSharedPreferences.init();
-      //      if (apiResult.response!.statusCode == 200) {
-      //       GeneralRoute.navigatorPushAndRemoveScreensWithoutContext(
-      //           const SplashScreen());
-      //     }
-
-      //   emit(LogOutSuccesfulState());
-      // } else {
-      //   emit(LogOutErrorState(message: apiResult.error));
-      // }
+      if (apiResult.response != null && apiResult.response!.statusCode == 200) {
+        emit(LogOutSuccessfulState());
+      } else {
+        emit(LogOutErrorState(message: apiResult.error));
+      }
     });
 
     on<VerifySmsCodeEvent>((event, emit) async {
@@ -68,7 +64,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       //   PhoneAuthCredential credential = PhoneAuthProvider.credential(
       //       verificationId: verificationId!, smsCode: event.code);
       //   await FirebaseAuth.instance.signInWithCredential(credential);
-      //   emit(VerifySmsSuccesfulState());
+      //   emit(VerifySmsSuccessfulState());
       // } catch (error) {
       //   if (error is FirebaseAuthException) {
       //     emit(VerifySmsErrorState(message: "The code is invalid"));
@@ -138,7 +134,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       //     await authRepository.checkPhone(phoneNumber: event.phoneNumber);
 
       // if (apiResult.response != null && apiResult.response!.statusCode == 200) {
-      //   emit(CheckPhoneNumberSuccesfulState());
+      //   emit(CheckPhoneNumberSuccessfulState());
       // } else {
       //   emit(CheckPhoneNumberErrorState(message: apiResult.error));
       // }
@@ -151,7 +147,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       //     phoneNumber: event.phoneNumber, newPassword: event.newPassword);
 
       // if (apiResult.response != null && apiResult.response!.statusCode == 200) {
-      //   emit(ChangePasswordSuccesfulState());
+      //   emit(ChangePasswordSuccessfulState());
       // } else {
       //   emit(ChangePasswordErrorState(message: apiResult.error));
       // }
@@ -168,7 +164,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthStates> {
       //   await AppSharedPreferences.clearSharedPreferences();
 
       //   await AppSharedPreferences.init();
-      //   emit(DeleteAccountSuccesfulState());
+      //   emit(DeleteAccountSuccessfulState());
       // } else {
       //   emit(DeleteAccountErrorState(message: apiResult.error));
       // }

@@ -1,4 +1,38 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+        <queries>
+    <intent>
+        <action android:name="android.intent.action.DIAL" />
+        <data android:scheme="tel" />
+    </intent>
+    <intent>
+        <action android:name="android.intent.action.CALL" />
+        <data android:scheme="tel" />
+    </intent>
+    <intent>
+        <action android:name="android.intent.action.SENDTO" />
+        <data android:scheme="smsto" />
+    </intent>
+
+     <intent>
+        <action android:name="android.intent.action.VIEW" />
+         <category android:name="android.intent.category.BROWSABLE" />
+         <data android:scheme="https" />
+     </intent>
+      <intent>
+        <action android:name="android.intent.action.VIEW" />
+
+        <data android:mimeType="application/pdf" />
+     </intent>
+      </queries>
+
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <application
         android:label="ecommerce"
         android:name="${applicationName}"
@@ -29,6 +63,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+               <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyCjU2Z3rFcn8kC_EjC3pSwhLLAro2ZngpI"/>
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility?hl=en and

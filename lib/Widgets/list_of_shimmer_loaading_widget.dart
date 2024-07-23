@@ -7,10 +7,12 @@ class ListOfShimmerWidget extends StatelessWidget {
   final double height;
   final double width;
   final int itemCount;
+  final double radius;
   const ListOfShimmerWidget({
     super.key,
     required this.height,
     this.itemCount = 10,
+    required this.radius,
     this.width = double.infinity,
   });
 
@@ -30,7 +32,7 @@ class ListOfShimmerWidget extends StatelessWidget {
             width: width,
             decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.circular(5.w)),
+                borderRadius: BorderRadius.circular(radius)),
           ),
         ),
       ),

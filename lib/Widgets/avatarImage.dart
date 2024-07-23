@@ -138,7 +138,7 @@ class _AvatarImageState extends State<AvatarImage> {
               showImageDialog(context);
             },
             child: Container(
-              margin: EdgeInsets.only(bottom: 3.h, right: 5.w),
+              margin: EdgeInsets.only(bottom: 3.h, right: 1.w),
               padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
               decoration: BoxDecoration(
                   color: Theme.of(context).primaryColor,

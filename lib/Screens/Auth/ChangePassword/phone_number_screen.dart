@@ -1,13 +1,9 @@
-import 'package:country_picker/country_picker.dart';
 import 'package:ecommerce/App/app_localizations.dart';
 import 'package:ecommerce/Bloc/auth_bloc/auth_bloc.dart';
 import 'package:ecommerce/Core/Constants/app_assets.dart';
 import 'package:ecommerce/Core/Constants/app_colors.dart';
-import 'package:ecommerce/Screens/Auth/ChangePassword/verification_code_screen.dart';
 import 'package:ecommerce/Widgets/app_bar_widget.dart';
-import 'package:ecommerce/Util/GeneralRoute.dart';
 import 'package:ecommerce/Widgets/custom_button.dart';
-import 'package:ecommerce/Widgets/custom_country_picker_widget.dart';
 import 'package:ecommerce/Widgets/custom_text.dart';
 import 'package:ecommerce/Widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
@@ -34,8 +30,6 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
     super.initState();
   }
 
-  Country? country;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +47,7 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                 width: double.infinity,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(AppAssets.logoImage),
+                        image: AssetImage(AppAssets.splashImage),
                         fit: BoxFit.contain)),
               ),
               Row(
@@ -82,15 +76,6 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
               SizedBox(
                 height: 4.h,
               ),
-              CustomCountryPickerWidget(
-                  hintSearchText: "Search for country".tr(context),
-                  hintText: "Enter Your Phone".tr(context),
-                  // validatorMessage: "Please Enter Your Phone".tr(context),
-                  country: country,
-                  onSelect: (newCountry) {
-                    country = newCountry;
-                  },
-                  textEditingController: phoneController),
               SizedBox(
                 height: 4.h,
               ),
@@ -105,19 +90,19 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                       ),
                     ));
                   }
-                  if (state is CheckPhoneNumberSuccesfulState) {
+                  if (state is CheckPhoneNumberSuccessfulState) {
                     // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     //   backgroundColor: AppColors.greanColor,
                     //   duration: const Duration(seconds: 5),
                     //   content: Text(
-                    //     "SignIn Succesful".tr(context),
+                    //     "SignIn Successful".tr(context),
                     //   ),
                     // ));
-                    GeneralRoute.navigatorPushWithContext(
-                        context,
-                        VerificationCodeScreen(
-                            phone:
-                                "+${country?.phoneCode ?? 971} ${phoneController.text}"));
+                    // GeneralRoute.navigatorPushWithContext(
+                    //     context,
+                    //     VerificationCodeScreen(
+                    //         phone:
+                    //             "+${country?.phoneCode ?? 971} ${phoneController.text}"));
                   }
                 },
                 builder: (context, state) {
@@ -129,7 +114,7 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                               if (formKey.currentState!.validate()) {
                                 authBloc.add(CheckPhoneNumberEvent(
                                   phoneNumber:
-                                      "+${country?.phoneCode ?? 971} ${phoneController.text}",
+                                      "+${971} ${phoneController.text}",
                                 ));
                               }
                             },

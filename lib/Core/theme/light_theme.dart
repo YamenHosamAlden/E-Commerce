@@ -46,6 +46,18 @@ ThemeData light = ThemeData(
         color: AppColors.lightBlackColor,
         fontWeight: FontWeight.bold,
         fontSize: 14.sp),
+
+            headlineSmall: TextStyle(
+        color: AppColors.lightBlackColor,
+        fontWeight: FontWeight.bold,
+        fontSize: 12.sp),
+
+
+          bodyLarge: TextStyle(
+      color: AppColors.lightBlackColor,
+      fontSize: 18.sp,
+      fontWeight: FontWeight.bold
+    ),
     bodyMedium: TextStyle(
       color: AppColors.lightBlackColor,
       fontSize: 12.sp,

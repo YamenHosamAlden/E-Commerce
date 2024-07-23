@@ -2,7 +2,7 @@ import 'package:ecommerce/App/app_localizations.dart';
 import 'package:ecommerce/Bloc/auth_bloc/auth_bloc.dart';
 import 'package:ecommerce/Core/Constants/app_assets.dart';
 import 'package:ecommerce/Core/Constants/app_colors.dart';
-import 'package:ecommerce/Screens/Auth/sign_in_screen.dart';
+import 'package:ecommerce/Screens/Auth/log_in_screen.dart';
 import 'package:ecommerce/Widgets/app_bar_widget.dart';
 import 'package:ecommerce/Util/GeneralRoute.dart';
 import 'package:ecommerce/Widgets/custom_button.dart';
@@ -39,7 +39,7 @@ class ChangePasswordScreen extends StatelessWidget {
                 width: double.infinity,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(AppAssets.logoImage),
+                        image: AssetImage(AppAssets.splashImage),
                         fit: BoxFit.contain)),
               ),
               Row(
@@ -91,16 +91,16 @@ class ChangePasswordScreen extends StatelessWidget {
                       ),
                     ));
                   }
-                  if (state is ChangePasswordSuccesfulState) {
+                  if (state is ChangePasswordSuccessfulState) {
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       backgroundColor: AppColors.greanColor,
                       duration: const Duration(seconds: 5),
                       content: Text(
-                        "Edit password Succesfully".tr(context),
+                        "Edit password Successfully".tr(context),
                       ),
                     ));
                     GeneralRoute.navigatorPushAndRemoveScreensWithContext(
-                        context, const SignInScreen());
+                        context, const LogInScreen());
                   }
                 },
                 builder: (context, state) {

@@ -1,55 +1,52 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:ecommerce/Core/Constants/app_colors.dart';
 import 'package:ecommerce/Widgets/custom_text.dart';
 import 'package:ecommerce/Widgets/custom_text_falid.dart';
 import 'package:flutter/material.dart';
 
 import 'package:sizer/sizer.dart';
 
-class CustomDropDown extends StatefulWidget {
+class CustomDropDownWidget extends StatefulWidget {
   final bool isValidator;
-
   final String? validatorMessage;
   final bool isSearch;
   final String? hintSearch;
   final String? hintText;
-  final Color? fillColor;
+
   final Color borderColor;
   final List<String> values;
   final String? dropdownValue;
-  final TextEditingController controller;
 
   final Function(String?) onChanged;
 
-  const CustomDropDown(
+  const CustomDropDownWidget(
       {this.validatorMessage,
-      required this.controller,
-      this.dropdownValue,
       required this.values,
       this.isSearch = false,
       this.borderColor = Colors.transparent,
       this.hintText,
-      this.fillColor,
       this.isValidator = false,
       this.hintSearch,
       required this.onChanged,
-      super.key});
+      super.key,
+      this.dropdownValue});
 
   @override
-  State<CustomDropDown> createState() => _CustomDropDownsState();
+  State<CustomDropDownWidget> createState() => _CustomDropDownWidgetsState();
 }
 
-class _CustomDropDownsState extends State<CustomDropDown> {
-  TextEditingController textEditingController = TextEditingController();
-
+class _CustomDropDownWidgetsState extends State<CustomDropDownWidget> {
   String? dropdownValue;
+
   @override
   void initState() {
     super.initState();
+
     if (widget.dropdownValue != null) {
       dropdownValue = widget.dropdownValue;
     }
   }
+
+  TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -64,12 +61,12 @@ class _CustomDropDownsState extends State<CustomDropDown> {
           : null,
       onMenuStateChange: (isOpen) {
         if (!isOpen) {
-          textEditingController.clear();
+          searchController.clear();
         }
       },
       dropdownSearchData: widget.isSearch
           ? DropdownSearchData(
-              searchController: textEditingController,
+              searchController: searchController,
               searchInnerWidgetHeight: 5.h,
               searchMatchFn: (item, searchValue) {
                 return item.value!.toString().contains(searchValue);
@@ -79,7 +76,7 @@ class _CustomDropDownsState extends State<CustomDropDown> {
                 child: CustomTextField(
                   textInputType: TextInputType.name,
                   hintText: widget.hintSearch,
-                  controller: textEditingController,
+                  controller: searchController,
                 ),
               ))
           : null,
@@ -87,60 +84,58 @@ class _CustomDropDownsState extends State<CustomDropDown> {
         maxHeight: 40.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5.w),
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).cardColor,
         ),
         offset: const Offset(0, 0),
         scrollbarTheme: ScrollbarThemeData(
           radius: Radius.circular(5.w),
-          thumbColor:
-               MaterialStatePropertyAll(Theme.of(context).primaryColor),
-          thickness: MaterialStateProperty.all(2.w),
-          thumbVisibility: MaterialStateProperty.all(true),
+          thumbColor: WidgetStatePropertyAll(Theme.of(context).primaryColor),
+          thickness: WidgetStateProperty.all(2.w),
+          thumbVisibility: WidgetStateProperty.all(true),
         ),
       ),
       isExpanded: true,
+      hint: Row(
+        children: [
+          Expanded(
+            child: Text(
+              widget.hintText ?? "",
+              style: TextStyle(
+                  color: Theme.of(context).hintColor,
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.bold),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
+      iconStyleData:
+          IconStyleData(iconEnabledColor: Theme.of(context).primaryColor),
       decoration: InputDecoration(
-        hintText: widget.hintText,
-        filled: widget.fillColor != null,
-        fillColor: widget.fillColor,
-        enabledBorder: OutlineInputBorder(
-          borderSide:
-              const BorderSide(color: AppColors.greyLightColor, width: 1),
-          borderRadius: BorderRadius.circular(2.w),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide:
-              const BorderSide(color: AppColors.greyLightColor, width: 1),
-          borderRadius: BorderRadius.circular(2.w),
-        ),
-        errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(2.w),
-            borderSide: const BorderSide(color: Colors.red)),
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(2.w),
-            borderSide:
-                const BorderSide(color: AppColors.greyLightColor, width: 1)),
-        contentPadding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 2.h),
-        counterText: '',
-        hintStyle: TextStyle(color: AppColors.greyLightColor, fontSize: 12.sp),
+        filled: true,
+        fillColor: Theme.of(context).inputDecorationTheme.fillColor,
+        enabledBorder: Theme.of(context).inputDecorationTheme.enabledBorder,
+        focusedBorder: Theme.of(context).inputDecorationTheme.focusedBorder,
+        errorBorder: Theme.of(context).inputDecorationTheme.errorBorder,
+        border: Theme.of(context).inputDecorationTheme.border,
+        contentPadding: EdgeInsets.symmetric(vertical: 1.5.h, horizontal: 2.h),
         errorStyle: const TextStyle(height: 1.5),
         alignLabelWithHint: true,
       ),
-      value: widget.dropdownValue,
+      value: dropdownValue,
       style: TextStyle(
-        fontSize: 13.sp,
         color: Theme.of(context).primaryColor,
+        fontSize: 12.sp,
       ),
       items: widget.values.map((value) {
         return DropdownMenuItem(
             value: value,
             child: CustomText(
               textData: value,
+              //  textStyle:     Theme.of(context).textTheme.bodyMedium!,
             ));
       }).toList(),
-      onChanged: (newValue) {
-        widget.onChanged(newValue);
-      },
+      onChanged: widget.onChanged,
     );
   }
 }

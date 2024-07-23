@@ -29,22 +29,22 @@ class CustomButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(5.w),
       ),
       child: MaterialButton(
-        height: buttonHight,
-
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.w)),
-        // color: buttonColor,
-        onPressed: () {
-          onPressed();
-        },
-        child: 
-        
-        CustomText(
-          textData: buttonText,
-             textAlign: TextAlign.center,
-             textStyle:Theme.of(context).textTheme.labelMedium ,
-        )
-      
-      ),
+          height: buttonHight,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.w)),
+          // color: buttonColor,
+          onPressed: () {
+            onPressed();
+          },
+          child: CustomText(
+            textData: buttonText,
+            textAlign: TextAlign.center,
+            textStyle: textColor != null
+                ? TextStyle(
+                    color: textColor,
+                    fontSize: Theme.of(context).textTheme.labelMedium!.fontSize)
+                : Theme.of(context).textTheme.labelMedium,
+          )),
     );
   }
 }

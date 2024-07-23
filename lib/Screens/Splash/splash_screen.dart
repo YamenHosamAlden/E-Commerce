@@ -3,12 +3,14 @@ import 'dart:async';
 import 'package:ecommerce/App/app_localizations.dart';
 import 'package:ecommerce/Bloc/connectivity_bloc/connectivity_bloc.dart';
 import 'package:ecommerce/Core/Constants/app_assets.dart';
-import 'package:ecommerce/Screens/Auth/sign_in_screen.dart';
+import 'package:ecommerce/Screens/Auth/log_in_screen.dart';
 import 'package:ecommerce/Screens/Main/main_screen.dart';
 import 'package:ecommerce/Screens/Onboarding/onboarding_screens.dart';
 import 'package:ecommerce/Util/GeneralRoute.dart';
 import 'package:ecommerce/Util/SharedPreferences/SharedPreferencesHelper.dart';
+import 'package:ecommerce/Util/notificaton.dart';
 import 'package:ecommerce/Widgets/custom_text.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,11 +27,13 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // FirebaseMessaging.instance.requestPermission();
+    FirebaseMessaging.instance.requestPermission();
+     getFcmToken();
+
     // requestLocationPermission();
 
-    // FirebaseMessaging.onBackgroundMessage(
-    //     NotificatonHandler.firebaseMessagingBackgroundHandler);
+    FirebaseMessaging.onBackgroundMessage(
+        NotificatonHandler.firebaseMessagingBackgroundHandler);
     super.initState();
     Timer(const Duration(seconds: 3), () {
       if (AppSharedPreferences.hasToken) {
@@ -38,13 +42,18 @@ class _SplashScreenState extends State<SplashScreen> {
       } else {
         if (AppSharedPreferences.hideOnboarding) {
           GeneralRoute.navigatorPushAndRemoveScreensWithContext(
-              context, const SignInScreen());
+              context, const LogInScreen());
         } else {
           GeneralRoute.navigatorPushAndRemoveScreensWithContext(
               context, const OnboardingScreens());
         }
       }
     });
+  }
+
+  void getFcmToken() async {
+    NotificatonHandler.fcmToken = await FirebaseMessaging.instance.getToken();
+    print("fcm token is  ${NotificatonHandler.fcmToken}");
   }
 
   void requestLocationPermission() async {
@@ -57,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-   backgroundColor:   Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: BlocListener<ConnectivityBloc, ConnectedState>(
         listener: (context, state) {
           if (state.message == "Connecting To Wifi") {
@@ -100,9 +109,9 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomText(
-                    textData: "Welcome Customer".tr(context),
-                      textStyle: Theme.of(context).textTheme.headlineMedium,
-                  )
+                  textData: "Welcome Customer".tr(context),
+                  textStyle: Theme.of(context).textTheme.headlineMedium,
+                )
               ],
             ),
           ],
