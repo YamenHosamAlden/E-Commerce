@@ -5,36 +5,36 @@ abstract class AuthStates {}
 
 class AuthInitial extends AuthStates {}
 
-
 class SignUpLoadingState extends AuthStates {}
 
-class SignUpSuccesfulState extends AuthStates {}
+class SignUpSuccessfulState extends AuthStates {}
 
 class SignUpErrorState extends AuthStates {
   final String message;
   SignUpErrorState({required this.message});
 }
 
-class SiginLoadingState extends AuthStates {}
+class LogInLoadingState extends AuthStates {}
 
-class SiginSuccesfulState extends AuthStates {}
+class LogInSuccessfulState extends AuthStates {}
 
-class SiginErrorState extends AuthStates {
+class LogInErrorState extends AuthStates {
   final String message;
-  SiginErrorState({required this.message});
+  LogInErrorState({required this.message});
 }
 
 class FillSigUpLoadingState extends AuthStates {}
 
-class FillSigUpSuccesfulState extends AuthStates {}
+class FillSigUpSuccessfulState extends AuthStates {}
 
 class FillSigUpErrorState extends AuthStates {
   final String message;
   FillSigUpErrorState({required this.message});
 }
+
 class LogOutLoadingState extends AuthStates {}
 
-class LogOutSuccesfulState extends AuthStates {}
+class LogOutSuccessfulState extends AuthStates {}
 
 class LogOutErrorState extends AuthStates {
   final String message;
@@ -43,25 +43,25 @@ class LogOutErrorState extends AuthStates {
 
 class VerifySmsLoadingState extends AuthStates {}
 
-class VerifySmsSuccesfulState extends AuthStates {}
+class VerifySmsSuccessfulState extends AuthStates {}
 
 class VerifySmsErrorState extends AuthStates {
   final String message;
   VerifySmsErrorState({required this.message});
 }
 
-
 class DeleteAccountLoadingState extends AuthStates {}
-class DeleteAccountSuccesfulState extends AuthStates {}
 
+class DeleteAccountSuccessfulState extends AuthStates {}
 
 class DeleteAccountErrorState extends AuthStates {
   final String message;
   DeleteAccountErrorState({required this.message});
 }
-class CheckPhoneNumberLoadingState extends AuthStates {}
-class CheckPhoneNumberSuccesfulState extends AuthStates {}
 
+class CheckPhoneNumberLoadingState extends AuthStates {}
+
+class CheckPhoneNumberSuccessfulState extends AuthStates {}
 
 class CheckPhoneNumberErrorState extends AuthStates {
   final String message;
@@ -69,14 +69,13 @@ class CheckPhoneNumberErrorState extends AuthStates {
 }
 
 class ChangePasswordLoadingState extends AuthStates {}
-class ChangePasswordSuccesfulState extends AuthStates {}
 
+class ChangePasswordSuccessfulState extends AuthStates {}
 
 class ChangePasswordErrorState extends AuthStates {
   final String message;
   ChangePasswordErrorState({required this.message});
 }
-
 
 class FirebaseAuthErrorState extends AuthStates {
   final String message;

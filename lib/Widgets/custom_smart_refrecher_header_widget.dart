@@ -10,7 +10,7 @@ class CustomSmartRefrecherHeaderWidget extends StatelessWidget {
     return defaultTargetPlatform == TargetPlatform.iOS
         ? const ClassicHeader()
         :  MaterialClassicHeader(
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).cardColor,
             backgroundColor: Theme.of(context).primaryColor);
   }
 }

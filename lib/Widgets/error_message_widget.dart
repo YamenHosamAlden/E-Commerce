@@ -24,7 +24,7 @@ class ErrorMessageWidget extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 3.h, horizontal: 5.w),
           margin: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
           decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).cardColor,
               borderRadius: BorderRadius.circular(5.w),
               boxShadow: const [
                 BoxShadow(
@@ -36,7 +36,7 @@ class ErrorMessageWidget extends StatelessWidget {
           child: Column(
             children: [
               Image(
-                image: const AssetImage(AppAssets.logoImage),
+                image: const AssetImage(AppAssets.splashImage),
                 height: 15.h,
                 width: 30.w,
               ),

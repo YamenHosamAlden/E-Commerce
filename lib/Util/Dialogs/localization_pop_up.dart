@@ -1,5 +1,5 @@
 import 'package:ecommerce/App/app_localizations.dart';
-import 'package:ecommerce/Bloc/app_language_bloc/app_language_bloc.dart';
+import 'package:ecommerce/Bloc/app_bloc/app_bloc.dart';
 import 'package:ecommerce/Util/SharedPreferences/SharedPreferencesHelper.dart';
 import 'package:ecommerce/Widgets/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -23,26 +23,32 @@ popUpChooseLocale(BuildContext context) {
                     margin: const EdgeInsets.symmetric(
                         horizontal: 20, vertical: 10),
                     child: CustomText(
-                    textData:   "Choose your language".tr(context),
-                      textStyle:  Theme.of(context).textTheme.headlineMedium
+                      textData: "Choose your language".tr(context),
+                      textStyle: Theme.of(context).textTheme.headlineMedium,
                     )),
                 const SizedBox(height: 5),
-                CheckboxListTile(
-                    value: !value,
-                    onChanged: (newVal) {
-                      newVal = AppSharedPreferences.hasArLang;
-                      BlocProvider.of<AppLanguageBloc>(context)
-                          .add(ChangeLanguageToEn());
-                    },
-                    title: const CustomText(textData:  'English')),
-                CheckboxListTile(
-                    value: value,
-                    onChanged: (newVal) {
-                      newVal = !AppSharedPreferences.hasArLang;
-                      BlocProvider.of<AppLanguageBloc>(context)
-                          .add(ChangeLanguageToAr());
-                    },
-                    title: const CustomText(textData: 'العربية',)),
+                RadioListTile<bool>(
+                  title: CustomText(
+                    textData: 'English',
+                    textStyle: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  groupValue: false,
+                  value: value,
+                  onChanged: (newVal) {
+                    BlocProvider.of<AppBloc>(context).add(ChangeLanguage());
+                  },
+                ),
+                RadioListTile<bool>(
+                  title: CustomText(
+                    textData: 'العربية',
+                    textStyle: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  groupValue: false,
+                  value: !value,
+                  onChanged: (newVal) {
+                    BlocProvider.of<AppBloc>(context).add(ChangeLanguage());
+                  },
+                ),
               ]),
             ));
       });

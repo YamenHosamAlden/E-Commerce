@@ -1,6 +1,6 @@
 import 'package:ecommerce/App/app_localizations.dart';
 import 'package:ecommerce/Core/Constants/app_assets.dart';
-import 'package:ecommerce/Screens/Auth/sign_in_screen.dart';
+import 'package:ecommerce/Screens/Auth/log_in_screen.dart';
 import 'package:ecommerce/Util/GeneralRoute.dart';
 import 'package:ecommerce/Util/SharedPreferences/SharedPreferencesHelper.dart';
 import 'package:ecommerce/Widgets/custom_button.dart';
@@ -51,7 +51,7 @@ class OnboardingScreen3 extends StatelessWidget {
                   await AppSharedPreferences.saveHideOnboarding(true);
                   if (context.mounted) {
                     GeneralRoute.navigatorPushAndRemoveScreensWithContext(
-                        context, const SignInScreen());
+                        context, const LogInScreen());
                   }
                 },
                 buttonText: "Next".tr(context),

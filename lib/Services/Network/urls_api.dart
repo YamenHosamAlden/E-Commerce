@@ -1,53 +1,28 @@
 class UrlsApi {
   static const String urlApi = "";
-  static const String signUpApi = "signup";
+  static const String signUpApi = "Users/customer/signup/";
   static const String completeSignUpApi = "completeSignup";
-  static const String logInApi = "login";
-  static const String requestToJoinTeamApi = "requestToJoinTeam";
-  static const String createTeamTeamApi = "createTeam";
-  static const String logOutApi = "logout";
-  static const String getAllTeamsApi = "getAllTeams";
-  static const String getTeamDetailsApi = "getTeam/";
-  static const String getAllPlayersApi = "getAllUsers";
-  static const String getProfilePlayerApi = "getUser";
-  static const String checkPhoneNumberApi = "checkPhoneNumber";
-  static const String resetPasswordApi = "resetPassword";
-  static const String deletePlayerApi = "deleteUser";
-  static const String getFormationApi = "getFormation";
-  static const String inviteToMyTeamApi = "inviteToMyTeam";
-  static const String editFormationApi = "editFormation";
-  static const String getAllChampionshipsApi = "getAllChampionships";
-  static const String getAllH2HMatchesApi = "getAllH2HMatches";
-  static const String getH2HRecordsApi = "getH2HRecords";
-  static const String getChampionshipRecordsApi = "getChampionshipRecords";
-  static const String deleteTeamApi = "deleteTeam";
-   static const String makeCoachApi = "makeCoach";
-  static const String getIbansApi = "getAllIbans";
-  static const String requestToJoinChampionshipApi =
-      "requestToJoinChampionship";
-  static const String championshipProfileApi = "championshipProfile";
-  static const String getGroupsApi = "getGroups";
-  static const String getTreeApi = "getTree";
-  static const String getTeamH2HMatchApi = "getTeamH2HMatch";
-  static const String getH2HMatchDetails = "getH2HMatchDetails";
-  static const String createH2HMatchApi = "createH2HMatch";
-  static const String getPriceApi = "getPrice";
-    static const String rejectH2HMatchApi = "rejectH2HMatch";
-     static const String acceptH2HMatchApi = "acceptH2HMatch";
-       static const String selectPaymentMethodApi = "selectPaymentMethod";
-  static const String getChampionshipDetailsApi = "getChampionship";
-  static const String profileApi = "profile";
-  static const String editProfileApi = "editProfile";
-  static const String teamProfileApi = "teamProfile";
-  static const String editTeamProfileApi = "editTeamProfile";
-  static const String kickPlayerApi = "kickPlayer";
-  static const String leaveTeamApi = "leaveTeam";
-  static const String getAllPlayerRequestsApi = "getAllUserRequests";
-  static const String getAllTeamRequestsApi = "getAllTeamRequests";
-  static const String acceptTeamRequestApi = "acceptTeamRequest";
-  static const String rejectTeamRequestApi = "rejectTeamRequest";
-  static const String addPlayerToTeamApi = "addUserToTeam";
-  static const String rejectPlayerRequestApi = "rejectUserRequest";
-   static const String teamRequestsMarkAsSeenApi = "TeamRequests/markAsSeen";
-   static const String userRequestsMarkAsSeenApi = "UserRequests/markAsSeen";
+  static const String logInApi = "Users/login/";
+  static const String categoryApi = "catalog/category/";
+  static const String startAppApi = "catalog/startup/";
+  static const String productDetailsApi = "catalog/product/";
+    static const String promotionProductsApi = "promotion/products/";
+        static const String promotionApi = "promotion/";
+
+
+  static const String filtersApi = "catalog/filter/params";
+  static const String productListApi = "catalog/products/";
+  static const String filtedProductListApi = "filters/";
+  static const String wishListApi = "wishlist/";
+  static const String shoppingCart = "shoppingcart/";
+  static const String wishListToShoppingCart = "wishlist_to_shoppingcart/";
+  static const String logOutApi = "Users/logout/";
+  static const String profileApi = "Users/customer/";
+  static const String addressApi = "address/";
+  static const String searchApi = "search/";
+  static const String completionApi = "completion/";
+  static const String useCouponApi = "use_coupon/";
+  static const String orderApi = "order/";
+    static const String notificationApi = "notification/";
+
 }

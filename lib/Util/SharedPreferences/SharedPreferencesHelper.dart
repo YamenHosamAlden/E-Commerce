@@ -39,10 +39,10 @@ class AppSharedPreferences {
       sharedPreferencesProvider!.remove(AppStrings.language);
  
   //theme
-  static bool get getTheme => sharedPreferencesProvider!.read(AppStrings.theme) ??  false ;
-  static saveTheme(bool value) => sharedPreferencesProvider!.save(AppStrings.theme, value);
-  static bool get hasTheme => sharedPreferencesProvider!.contains(AppStrings.theme);
-  static removeTheme() => sharedPreferencesProvider!.remove(AppStrings.theme);
+  static bool get getDarkTheme => sharedPreferencesProvider!.read(AppStrings.theme) ??  false ;
+  static saveDarkTheme(bool value) => sharedPreferencesProvider!.save(AppStrings.theme, value);
+  static bool get hasDarkTheme => sharedPreferencesProvider!.contains(AppStrings.theme);
+  static removeDarkTheme() => sharedPreferencesProvider!.remove(AppStrings.theme);
 
   static clearSharedPreferences() {
     sharedPreferencesProvider!.clear();

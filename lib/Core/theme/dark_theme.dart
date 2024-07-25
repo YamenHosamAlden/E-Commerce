@@ -47,6 +47,15 @@ ThemeData dark = ThemeData(
         color: AppColors.darkWhiteColor,
         fontWeight: FontWeight.bold,
         fontSize: 14.sp),
+          headlineSmall: TextStyle(
+        color: AppColors.darkWhiteColor,
+        fontWeight: FontWeight.bold,
+        fontSize: 12.sp),
+             bodyLarge: TextStyle(
+      color: AppColors.darkWhiteColor,
+      fontSize: 18.sp,
+      fontWeight: FontWeight.bold
+    ),
     bodyMedium: TextStyle(
       color: AppColors.darkWhiteColor,
       fontSize: 12.sp,

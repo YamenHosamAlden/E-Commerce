@@ -1,5 +1,5 @@
 import 'package:ecommerce/App/app_localizations.dart';
-import 'package:ecommerce/Screens/Auth/sign_in_screen.dart';
+import 'package:ecommerce/Screens/Auth/log_in_screen.dart';
 import 'package:ecommerce/Screens/Onboarding/screen1.dart';
 import 'package:ecommerce/Screens/Onboarding/screen2.dart';
 import 'package:ecommerce/Screens/Onboarding/screen3.dart';
@@ -76,7 +76,7 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
                         await AppSharedPreferences.saveHideOnboarding(true);
                         if (context.mounted) {
                           GeneralRoute.navigatorPushAndRemoveScreensWithContext(
-                              context, const SignInScreen());
+                              context, const LogInScreen());
                         }
                       },
                       child: CustomText(

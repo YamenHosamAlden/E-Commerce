@@ -48,27 +48,27 @@ class RateWidget extends StatelessWidget {
         SizedBox(width: 1.w,),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         )
       ],
@@ -85,27 +85,27 @@ class RateWidget extends StatelessWidget {
 
         Icon(
           Icons.star_half,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         )
       ],
@@ -122,27 +122,27 @@ class RateWidget extends StatelessWidget {
 
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         )
       ],
@@ -159,27 +159,27 @@ class RateWidget extends StatelessWidget {
 
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_half,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         )
       ],
@@ -196,27 +196,27 @@ class RateWidget extends StatelessWidget {
 
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         )
       ],
@@ -233,27 +233,27 @@ class RateWidget extends StatelessWidget {
 
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_half_sharp,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         )
       ],
@@ -270,27 +270,27 @@ class RateWidget extends StatelessWidget {
 
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         )
       ],
@@ -307,27 +307,27 @@ class RateWidget extends StatelessWidget {
 
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_half,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         )
       ],
@@ -344,27 +344,27 @@ class RateWidget extends StatelessWidget {
 
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         )
       ],
@@ -381,27 +381,27 @@ class RateWidget extends StatelessWidget {
 
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_half,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         )
       ],
@@ -418,27 +418,27 @@ class RateWidget extends StatelessWidget {
 
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         ),
         Icon(
           Icons.star_border_outlined,
-          color: Colors.amber,
+          color: Colors.green,
           size: 5.w,
         )
       ],

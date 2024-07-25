@@ -5,7 +5,6 @@ import 'package:sizer/sizer.dart';
 BottomNavigationBarItem bottomNavigationBarItem(BuildContext context,
     {required int currentIndex,
     String? imageIcon,
-    IconData? iconData,
     required int index,
     required String navBarName}) {
   return BottomNavigationBarItem(
@@ -19,21 +18,14 @@ BottomNavigationBarItem bottomNavigationBarItem(BuildContext context,
             ? Theme.of(context).iconTheme.color
             : Colors.transparent,
       ),
-      child: iconData != null
-          ? Icon(
-              iconData,
-              color: currentIndex == index
-                  ? Theme.of(context).primaryColor
-                  : Theme.of(context).iconTheme.color,
-              size: 8.w,
-            )
-          : ImageIcon(
-              AssetImage(imageIcon!),
-              size: 6.w,
-              color: currentIndex == index
-                  ? Theme.of(context).primaryColor
-                  : Theme.of(context).iconTheme.color,
-            ),
+      child: Image(
+            image: AssetImage(imageIcon!),
+            height: 3.h,
+            width: 6.w,
+            color: currentIndex == index
+                ? Theme.of(context).primaryColor
+                : Theme.of(context).iconTheme.color,
+          ),
     ),
     label: navBarName,
   );
